@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información - Iglesia Ríos de Sanidad</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="networkCanvas" class="network-canvas"></canvas>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand-logo">
+                <img src="LogoIglesia.jpg" alt="Logo Ríos de Sanidad">
+            </a>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="informacion.html" class="active">Información</a></li>
+                <li><a href="iglesia.html">Iglesia</a></li>
+                <li><a href="eventos.html">Eventos y lives</a></li>
+                <li><a href="contacto.html">Contacto y Redes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main style="min-height: calc(100vh - 400px);">
+        <header class="page-header fade-up">
+            <h1 class="page-title">Nuestra Información</h1>
+            <p class="page-subtitle">Nuestros programas principales para sanar, restaurar y edificar tu vida espiritual.</p>
+        </header>
+        <!-- Información Section -->
+        <section class="ministerios" id="informacion" style="margin-top: 0;">
+            <div class="container">
+                
+                <div class="info-content-wrapper fold-up glass-panel reveal" style="padding: 4rem;">
+                    <div class="info-text">
+                        <p><strong>Red de Restauración</strong> es un canal de YouTube creado con el propósito de compartir enseñanzas, reflexiones y experiencias enfocadas en la sanidad interior, la liberación espiritual y el fortalecimiento de la fe cristiana, pero <strong>somos mucho más que eso: somos una Iglesia física y una familia espiritual.</strong></p>
+                        <p>A través de nuestros contenidos buscamos llevar un mensaje de esperanza, restauración y transformación espiritual a cada persona, hogar y familia.</p>
+                        <p>Nuestro canal forma parte del programa <strong>"Liberación en Casa"</strong>, donde abordamos temas profundos sobre la guerra espiritual, el poder de la oración, y cómo vivir una vida guiada por el Espíritu Santo. Creemos que Dios sigue restaurando vidas hoy, y que Su poder puede manifestarse en cualquier lugar.</p>
+                        <p><em>Te invitamos a visitarnos de forma presencial y ser parte de nuestra congregación, así como acompañarnos en nuestras transmisiones digitales.</em></p>
+                        <div style="margin-top: 2rem; margin-bottom: 2rem;">
+                            <h4 style="font-family: 'Inter', sans-serif; font-size: 1.1rem; margin-bottom: 1rem; color: var(--primary);">Nuestra Ubicación:</h4>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3272.7601445778234!2d-56.198423!3d-34.849213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzTCsDUwJzU3LjIiUyA1NsKwMTEnNTQuMyJX!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="300" style="border:0; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <a href="https://www.youtube.com/@Redderestauracion" target="_blank" class="btn btn-primary">Visitar Canal de YouTube</a>
+                        <a href="https://www.google.com/maps/place/-34.849213,-56.198423/" target="_blank" class="btn btn-outline" style="margin-left: 1rem;">Abrir en Maps</a>
+                    </div>
+                </div>
+                
+                <div class="cards-grid" style="margin-top: 4rem;">
+                    <!-- Card 1 -->
+                    <div class="card glass-panel reveal delay-1">
+                        <div class="card-icon floating">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <h3>Red de Restauración</h3>
+                        <p>Es un ministerio enfocado en sanar, restaurar y edificar vidas a través de la presencia de Dios y el amor fraternal.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card glass-panel reveal delay-2">
+                        <div class="card-icon floating" style="animation-delay: 0.5s;">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            </svg>
+                        </div>
+                        <h3>Liberación en Casa</h3>
+                        <p>Un programa en el que compartimos enseñanzas y experiencias sobre la sanidad interior y la guerra espiritual.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-brand-logo">
+                        <img src="LogoIglesia.jpg" alt="Logo Ríos de Sanidad">
+                    </div>
+                    <p style="margin-top: 1rem;">Construyendo relaciones sanas y restaurando vidas para el reino de Dios.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="informacion.html">Información</a></li>
+                        <li><a href="iglesia.html">Iglesia</a></li>
+                        <li><a href="eventos.html">Eventos y lives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <ul>
+                        <li><a href="https://www.youtube.com/@Redderestauracion" target="_blank">YouTube</a></li>
+                        <li><a href="https://www.facebook.com/silvia.rodriguez.1004837/" target="_blank">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Iglesia Ríos de Sanidad. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- scripts -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudanza Oficial - Iglesia Ríos de Sanidad</title>
+    <!-- SEO Optimization -->
+    <link rel="canonical" href="https://riosdesanidad.netlify.app/" id="canonicalLink" />
+    <meta name="robots" content="noindex, follow">
+    <meta http-equiv="refresh" content="10;url=https://riosdesanidad.netlify.app/" id="meta-refresh">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ESTILOS CLONADOS DIRECTAMENTE DE STYLES.CSS */
+        :root {
+            --primary: #1261d7;
+            --dark: #0f172a;
+            --text-main: #334155;
+            --text-light: #64748b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            /* Fondo super sutil original */
+            background: linear-gradient(135deg, rgba(253, 251, 251, 0.4) 0%, rgba(235, 237, 238, 0.4) 100%);
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(210,100%,94%,0.4) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(210,100%,90%,0.4) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(210,100%,94%,0.4) 0, transparent 50%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .network-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        main {
+            position: relative;
+            z-index: 10;
+            padding: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* PANEL DE CRISTAL ORIGINAL */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid rgba(18, 97, 215, 0.2);
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(18, 97, 215, 0.12);
+            padding: 4rem 3rem;
+            max-width: 650px;
+            width: 100%;
+            text-align: center;
+            animation: fadeUpAnim 0.8s forwards cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeUpAnim {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .spinner {
+            width: 50px; height: 50px;
+            border: 4px solid rgba(18, 97, 215, 0.1);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        p { line-height: 1.6; }
+
+        .url-box {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px dashed rgba(18, 97, 215, 0.4);
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            box-shadow: inset 0 0 20px rgba(255,255,255,1);
+        }
+
+        .url-box h3 { margin: 0 0 0.8rem 0; color: var(--primary); font-size: 1.1rem; text-transform: uppercase; font-weight: 800;}
+        .url-text { font-size: 1.4rem; font-weight: 800; color: #1e3a8a; word-break: break-all; margin: 0;}
+        
+        .copy-btn {
+            margin-top: 1.5rem;
+            padding: 0.8rem 2rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(18, 97, 215, 0.3);
+            transition: all 0.3s ease;
+        }
+        .copy-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(18, 97, 215, 0.4); }
+
+        .countdown { color: var(--text-light); margin-top: 1.5rem; font-weight: 600; }
+        .countdown span { color: var(--primary); font-weight: 800; font-size: 1.2rem; }
+        
+        /* NOTIFICACIÓN TOAST MAGICA */
+        .toast {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #10B981;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+            transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1000;
+        }
+        .toast.show { bottom: 40px; }
+    </style>
+</head>
+<body>
+    <!-- TELARAÑA ANIMADA INCRUSTADA DIRECTAMENTE -->
+    <canvas id="networkCanvas" class="network-canvas"></canvas>
+
+    <main>
+        <div class="glass-panel">
+            <div class="spinner"></div>
+            <h1 class="page-title">Ríos de Sanidad</h1>
+            <p style="font-size: 1.2rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem;">Nos hemos mudado a un nuevo servidor.</p>
+            <p>Por motivos de <strong>máxima seguridad y velocidad</strong>, todo nuestro sistema ha cambiado a una página más potente.</p>
+            
+            <div class="url-box" id="urlBox">
+                <h3>NUESTRA NUEVA DIRECCIÓN OFICIAL:</h3>
+                <p class="url-text" id="new-url">https://riosdesanidad.netlify.app/</p>
+                <button class="copy-btn" id="copyBtn">Copiar Nueva Dirección Ahora</button>
+            </div>
+
+            <p class="countdown">Te redirigiremos en <span id="timer">10</span> segundos...</p>
+            <a href="https://riosdesanidad.netlify.app/" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-block; margin-top: 1rem;">👉 O haz clic aquí para ir de inmediato</a>
+        </div>
+    </main>
+
+    <div class="toast" id="toastMsg">✅ ¡Enlace copiado al portapapeles automáticamente!</div>
+
+    <script>
+        // ==========================================
+        // 1. LÓGICA DE ANIMACIÓN (TELARAÑA ORIGINAL)
+        // ==========================================
+        const canvas = document.getElementById('networkCanvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+            const config = {
+                particleCount: window.innerWidth > 768 ? 60 : 30, // Ligeramente reducido para no saturar esta pantalla
+                particleRadius: 2.5,
+                lineDistance: 150,
+                particleSpeed: 0.5,
+                color: 'rgba(18, 97, 215, 0.4)',
+                lineColor: 'rgba(18, 97, 215, 0.15)'
+            };
+
+            function resizeCanvas() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * config.particleSpeed;
+                    this.vy = (Math.random() - 0.5) * config.particleSpeed;
+                }
+                update() {
+                    this.x += this.vx; this.y += this.vy;
+                    if (this.x < 0 || this.x > width) this.vx = -this.vx;
+                    if (this.y < 0 || this.y > height) this.vy = -this.vy;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, config.particleRadius, 0, Math.PI * 2);
+                    ctx.fillStyle = config.color;
+                    ctx.fill();
+                }
+            }
+
+            function initParticles() {
+                particles = [];
+                config.particleCount = window.innerWidth > 768 ? 80 : 35;
+                for (let i = 0; i < config.particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < config.lineDistance) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(18, 97, 215, ${0.2 - (distance / config.lineDistance) * 0.2})`;
+                            ctx.lineWidth = 1;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+            resizeCanvas(); initParticles(); animate();
+        }
+
+        // ==========================================
+        // 2. LÓGICA DE REDIRECCIÓN Y EXTRAS
+        // ==========================================
+        const NUEVA_URL = "https://riosdesanidad.netlify.app/"; 
+        
+        function showToast(msg) {
+            const t = document.getElementById("toastMsg");
+            t.textContent = msg;
+            t.classList.add("show");
+            setTimeout(() => t.classList.remove("show"), 4000);
+        }
+
+        window.addEventListener('load', () => {
+            try {
+                navigator.clipboard.writeText(NUEVA_URL).then(() => {
+                    showToast("✅ ¡Dirección copiada a tu celular automáticamente!");
+                    document.getElementById("copyBtn").innerHTML = "Enlace Copiado Automáticamente ✔";
+                    document.getElementById("copyBtn").style.background = "#10b981";
+                }).catch(e => console.log("Bloqueado silenciosamente"));
+            } catch(e){}
+        });
+
+        document.body.addEventListener('click', () => {
+            if(document.getElementById("copyBtn").textContent.includes("Copiado")) return; 
+            navigator.clipboard.writeText(NUEVA_URL).then(() => {
+                showToast("✅ ¡Enlace copiado al portapapeles!");
+                document.getElementById("copyBtn").innerHTML = "Enlace Copiado ✔";
+                document.getElementById("copyBtn").style.background = "#10b981";
+            });
+        }, {once: true}); 
+
+        document.getElementById("copyBtn").addEventListener("click", (e) => {
+            e.stopPropagation();
+            navigator.clipboard.writeText(NUEVA_URL).then(() => {
+                showToast("✅ ¡Nueva dirección guardada!");
+                const btn = document.getElementById("copyBtn");
+                btn.textContent = "¡Copiado Exitosamente ✔!";
+                btn.style.background = "#10b981";
+            }).catch(() => {
+                alert("Por favor, selecciona a mano el enlace para copiarlo.");
+            });
+        });
+
+        // Contrarreloj
+        let timeLeft = 10;
+        const timerEl = document.getElementById("timer");
+        const interval = setInterval(() => {
+            timeLeft--;
+            timerEl.textContent = timeLeft;
+            if(timeLeft <= 0) {
+                clearInterval(interval);
+                window.location.replace(NUEVA_URL);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -128,23 +128,7 @@
         .countdown { color: var(--text-light); margin-top: 1.5rem; font-weight: 600; }
         .countdown span { color: var(--primary); font-weight: 800; font-size: 1.2rem; }
         
-        /* NOTIFICACIÓN TOAST MAGICA */
-        .toast {
-            position: fixed;
-            bottom: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #10B981;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
-            transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 1000;
-        }
-        .toast.show { bottom: 40px; }
+
     </style>
 </head>
 <body>
@@ -161,15 +145,12 @@
             <div class="url-box" id="urlBox">
                 <h3>NUESTRA NUEVA DIRECCIÓN OFICIAL:</h3>
                 <p class="url-text" id="new-url">https://riosdesanidad.netlify.app/</p>
-                <button class="copy-btn" id="copyBtn">Copiar Nueva Dirección Ahora</button>
+                <a href="https://riosdesanidad.netlify.app/" class="copy-btn" style="text-decoration: none; display: inline-block;">Redireccionar Ahora</a>
             </div>
 
-            <p class="countdown">Te redirigiremos en <span id="timer">10</span> segundos...</p>
-            <a href="https://riosdesanidad.netlify.app/" style="color: var(--primary); font-weight: 700; text-decoration: none; display: inline-block; margin-top: 1rem;">👉 O haz clic aquí para ir de inmediato</a>
+            <p class="countdown" style="margin-top: 1rem;">Te enviaremos automáticamente en <span id="timer">10</span> segundos...</p>
         </div>
     </main>
-
-    <div class="toast" id="toastMsg">✅ ¡Enlace copiado al portapapeles automáticamente!</div>
 
     <script>
         // ==========================================
@@ -249,48 +230,10 @@
         }
 
         // ==========================================
-        // 2. LÓGICA DE REDIRECCIÓN Y EXTRAS
+        // 2. LÓGICA DE REDIRECCIÓN AUTOMÁTICA
         // ==========================================
         const NUEVA_URL = "https://riosdesanidad.netlify.app/"; 
         
-        function showToast(msg) {
-            const t = document.getElementById("toastMsg");
-            t.textContent = msg;
-            t.classList.add("show");
-            setTimeout(() => t.classList.remove("show"), 4000);
-        }
-
-        window.addEventListener('load', () => {
-            try {
-                navigator.clipboard.writeText(NUEVA_URL).then(() => {
-                    showToast("✅ ¡Dirección copiada a tu celular automáticamente!");
-                    document.getElementById("copyBtn").innerHTML = "Enlace Copiado Automáticamente ✔";
-                    document.getElementById("copyBtn").style.background = "#10b981";
-                }).catch(e => console.log("Bloqueado silenciosamente"));
-            } catch(e){}
-        });
-
-        document.body.addEventListener('click', () => {
-            if(document.getElementById("copyBtn").textContent.includes("Copiado")) return; 
-            navigator.clipboard.writeText(NUEVA_URL).then(() => {
-                showToast("✅ ¡Enlace copiado al portapapeles!");
-                document.getElementById("copyBtn").innerHTML = "Enlace Copiado ✔";
-                document.getElementById("copyBtn").style.background = "#10b981";
-            });
-        }, {once: true}); 
-
-        document.getElementById("copyBtn").addEventListener("click", (e) => {
-            e.stopPropagation();
-            navigator.clipboard.writeText(NUEVA_URL).then(() => {
-                showToast("✅ ¡Nueva dirección guardada!");
-                const btn = document.getElementById("copyBtn");
-                btn.textContent = "¡Copiado Exitosamente ✔!";
-                btn.style.background = "#10b981";
-            }).catch(() => {
-                alert("Por favor, selecciona a mano el enlace para copiarlo.");
-            });
-        });
-
         // Contrarreloj
         let timeLeft = 10;
         const timerEl = document.getElementById("timer");
